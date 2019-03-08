@@ -1,8 +1,15 @@
 #define TAP 4
 
+#if 0
 typedef int data_t;
 typedef int coef_t;
 typedef int sum_t;
+#else
+#include "ap_int.h"
+typedef ap_int<12> data_t;
+typedef ap_int<12> coef_t;
+typedef ap_int<24> sum_t;
+#endif
 
 template <typename T0, typename T1, typename T2>
 class systolic

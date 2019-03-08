@@ -4,6 +4,10 @@ using namespace std;
 
 void filter(data_t *x, coef_t h[4], sum_t *y)
 {
+#pragma HLS INTERFACE axis off port=x
+#pragma HLS INTERFACE axis off port=y
+#pragma HLS ARRAY_PARTITION variable=h complete dim=1
+#pragma HLS PIPELINE
 
   static systolic<data_t, coef_t, sum_t> s[4];
 
